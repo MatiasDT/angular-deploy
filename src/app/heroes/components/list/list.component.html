@@ -1,0 +1,20 @@
+
+<!-- <button class="btn btn-primary" (click)="addHero()">Agregar héroe</button> -->
+
+<button *ngIf="heroes.length" class="btn btn-outline-danger" (click)="removeHero()">Eliminar héroe</button>
+
+<div *ngIf="heroeDeleted else heroeNoBorrado">
+  <h3>Heroe borrado: <small class="text-danger">{{ heroeDeleted }}</small></h3>
+</div>
+
+<ng-template #heroeNoBorrado>
+  <h3>No ha borrado nada aun</h3>
+</ng-template>
+
+
+<h3>Listado de heroes</h3>
+<ul class="mt-2 list-group">
+  <li *ngFor="let hero of heroes" class="list-group-item">
+    {{ hero }}
+  </li>
+</ul>
